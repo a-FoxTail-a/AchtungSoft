@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title th:text= "${Title}" ></title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<link rel="stylesheet" href="css/style.css" th:href="@{/css/style.css}" />
-
-	<style>
 .button-css {
   display: inline-block;
   -webkit-box-sizing: content-box;
@@ -124,33 +114,3 @@ body {
 	position: relative;
 	display: block;
 }
-
-
-</style>
-</head>
-
-<body>
-
-<div class="wrapper">
-
-	<header class="header">
-		<center><div class="retro">SuperSoft</div></center>
-	</header>
-
-	<main class="content">
-		<p th:text="'Hello, ' + ${Title} + '!'" />
-		<center><p>По какому протаколу необходимо передать даныне ?</p></center>
-		<center><a href="/protocolHTTP"><div class="button-css" > Страница HTTP</div></a></center>
-		<center><a href="/protocolSOAP"><div class="button-css" > Страница SOAP</div></a></center>
-		<center><a href="/protocolJMS"><div class="button-css" > Страница JMS</div></a></center>
-
-	</main>
-
-</div>
-
-<footer class="footer">
-	<center><strong>Все права на разработку этой шайтан софтины принадлежит команде AchtungSuperGroup</strong></center>
-</footer>
-
-</body>
-</html>

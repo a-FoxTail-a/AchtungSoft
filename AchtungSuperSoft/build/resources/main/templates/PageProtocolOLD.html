@@ -35,9 +35,11 @@
   padding: 0 22px;
   color: #FFAE00;
   background: #ffffff;
-  align-items: center;
+  align-items: center}
 
-  }
+footer, header{
+
+}
 
 html, body, div, span, footer, header  {
 	margin: 0;
@@ -110,7 +112,7 @@ body {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   float: right;
-  width: 40%;
+  width: 60%;
   height: 60%;
   margin: auto;
   padding: 20px;
@@ -143,9 +145,80 @@ body {
 	display: block;
 }
 
+
+
+
+
+
+
+
+
+
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
+.open-button {
+  background-color: #2196F3;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  /*position: fixed;*/
+  bottom: 23px;
+  width: 280px;
+}
+
+.form-popup {
+  display: none;
+  /*position: fixed;*/
+  bottom: 0;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #1976D2;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.form-container .cancel {
+  background-color: #448AFF;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
 }
 
 
@@ -159,6 +232,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <header class="header">
         <div class="retro">SuperSoft</div>
     </header>
+    <script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+     }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+     }
+    </script>
+
     <main class="content">
         <center><h1 th:text="'Передача по протоколу ' + ${Protocol} + '!'" /></center>
         <h2 th:text="'Какой запросы вы хотите передать по протоколу ?  ' + ${Protocol}"/>
@@ -166,53 +249,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="block-response-css" th:text="${ResponseDB}"></div>
         <ul>
             <li>
-                <div>
-                    <form th:action="'/protocol'+${Protocol}">
-                        <h3>Запрос на создание</h3>
-                        <input type="hidden" value="Create" name="typeReqest" required>
+                <button class="open-button" onclick="openForm()">Запрос на создание</button>
+                <div class="form-popup" id="myForm">
+                    <form action="/protocolSOAP" class="form-container">
+                        <h3>Введите данные запроса</h3>
                         <input type="text" placeholder="Ваше имя" name="name" required>
                         <input type="text" placeholder="Ваш е-мейл" name="email" required>
                         <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
-                        <button type="submit" class="button-css">Создать</button>
+                        <button type="submit" class="btn">Отправить</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Закрыть</button>
                     </form>
                 </div>
             </li>
-            <li>
-                <div>
-                    <form th:action="'/protocol'+${Protocol}">
-                        <h3>Запрос на просмотр</h3>
-                        <input type="hidden" value="Show" name="typeReqest" required>
-                        <input type="text" placeholder="Ваше имя" name="name" required>
-                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
-                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
-                        <button type="submit" class="button-css">Просмотр</button>
-                    </form>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <form th:action="'/protocol'+${Protocol}">
-                        <h3>Запрос на изменение</h3>
-                        <input type="hidden" value="Edit" name="typeReqest" required>
-                        <input type="text" placeholder="Ваше имя" name="name" required>
-                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
-                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
-                        <button type="submit" class="button-css">Изменить</button>
-                    </form>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <form th:action="'/protocol'+${Protocol}">
-                        <h3>Запрос на удаление</h3>
-                        <input type="hidden" value="Del" name="typeReqest" required>
-                        <input type="text" placeholder="Ваше имя" name="name" required>
-                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
-                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
-                        <button type="submit" class="button-css">Удалить</button>
-                    </form>
-                </div>
-            </li>
+            <li><div class="button-css">Запрос на создание</div></li>
+            <li><div class="button-css">Запрос на просмотр</div></li>
+            <li><div class="button-css">Запрос на изменение</div></li>
+            <li><div class="button-css">Запрос на удаление</div></li>
             <li><a href="/"><div class="button-css">Go Back to HELL</div></a></li>
         </ul>
     </main>

@@ -35,11 +35,9 @@
   padding: 0 22px;
   color: #FFAE00;
   background: #ffffff;
-  align-items: center}
+  align-items: center;
 
-footer, header{
-
-}
+  }
 
 html, body, div, span, footer, header  {
 	margin: 0;
@@ -112,7 +110,7 @@ body {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   float: right;
-  width: 60%;
+  width: 40%;
   height: 60%;
   margin: auto;
   padding: 20px;
@@ -133,8 +131,6 @@ body {
 
 
 
-
-
 /* Footer
 -----------------------------------------------------------------------------*/
 .footer {
@@ -147,6 +143,11 @@ body {
 	display: block;
 }
 
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+}
+
 
 </style>
 </head>
@@ -156,19 +157,62 @@ body {
 <div class="wrapper">
 
     <header class="header">
-        <center><div class="retro">SuperSoft</div></center>
+        <div class="retro">SuperSoft</div>
     </header>
-
     <main class="content">
-        <p th:text="'Передача по протоколу ' + ${Protocol} + '!'" />
-        <p th:text="'Какой запросы вы хотите передать по протоколу ?  ' + ${Protocol}"/>
+        <center><h1 th:text="'Передача по протоколу ' + ${Protocol} + '!'" /></center>
+        <h2 th:text="'Какой запросы вы хотите передать по протоколу ?  ' + ${Protocol}"/>
 
         <div class="block-response-css" th:text="${ResponseDB}"></div>
         <ul>
-            <li><div class="button-css">Запрос на создание</div></li>
-            <li><div class="button-css">Запрос на просмотр</div></li>
-            <li><div class="button-css">Запрос на изменение</div></li>
-            <li><div class="button-css">Запрос на удаление</div></li>
+            <li>
+                <div>
+                    <form th:action="'/protocol'+${Protocol}">
+                        <h3>Запрос на создание</h3>
+                        <input type="hidden" value="Create" name="typeReqest" required>
+                        <input type="text" placeholder="Ваше имя" name="name" required>
+                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
+                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
+                        <button type="submit" class="button-css">Создать</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <form th:action="'/protocol'+${Protocol}">
+                        <h3>Запрос на просмотр</h3>
+                        <input type="hidden" value="Show" name="typeReqest" required>
+                        <input type="text" placeholder="Ваше имя" name="name" required>
+                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
+                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
+                        <button type="submit" class="button-css">Просмотр</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <form th:action="'/protocol'+${Protocol}">
+                        <h3>Запрос на изменение</h3>
+                        <input type="hidden" value="Edit" name="typeReqest" required>
+                        <input type="text" placeholder="Ваше имя" name="name" required>
+                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
+                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
+                        <button type="submit" class="button-css">Изменить</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <form th:action="'/protocol'+${Protocol}">
+                        <h3>Запрос на удаление</h3>
+                        <input type="hidden" value="Del" name="typeReqest" required>
+                        <input type="text" placeholder="Ваше имя" name="name" required>
+                        <input type="text" placeholder="Ваш е-мейл" name="email" required>
+                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
+                        <button type="submit" class="button-css">Удалить</button>
+                    </form>
+                </div>
+            </li>
             <li><a href="/"><div class="button-css">Go Back to HELL</div></a></li>
         </ul>
     </main>
