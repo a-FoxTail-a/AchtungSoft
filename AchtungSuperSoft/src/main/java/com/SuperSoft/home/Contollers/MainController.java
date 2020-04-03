@@ -1,5 +1,6 @@
 package com.SuperSoft.home.Contollers;
 
+import com.SuperSoft.home.BD;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,6 +56,8 @@ public class MainController {
                                  @RequestParam(name="phone", required=false, defaultValue="") String phone,
                                  @RequestParam(name="email", required=false, defaultValue="") String email,
                                    Model model) {
+
+
         model.addAttribute("Protocol", "HTTP");
         model.addAttribute("ResponseDB", first_name);
         return "PageProtocol";
@@ -70,6 +73,23 @@ public class MainController {
         model.addAttribute("ResponseDB", first_name);
         return "PageProtocol";
     }
+
+    @PostMapping("/protocolHTTPCreate")
+    public String POSTprotocolHTTPCreate(@RequestParam(name="first_name", required=false) String first_name,
+                                   @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                   @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                   @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                   @RequestParam(name="email", required=false, defaultValue="") String email,
+                                   Model model) {
+
+        BD m = new BD();
+        m.testDatabase(first_name,last_name,middle_name,phone,email);
+        model.addAttribute("Protocol", "HTTP");
+        model.addAttribute("ResponseDB", first_name);
+        return "PageProtocol";
+    }
+
+
 
     //============================================ Контроллер SOAP===================================
 

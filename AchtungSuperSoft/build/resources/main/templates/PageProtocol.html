@@ -167,7 +167,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <ul>
             <li>
                 <div>
-                    <form th:action="'/protocol'+${Protocol}" method="post">
+                    <form th:action="'/protocol'+${Protocol}+'Create'" method="post">
                         <h3>Запрос на создание</h3>
                         <input type="hidden" value="Create" name="typeReqest" required>
                         <input type="text" placeholder="Имя" name="first_name" required>
