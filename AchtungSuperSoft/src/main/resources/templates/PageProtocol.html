@@ -181,7 +181,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </li>
             <li>
                 <div>
-                    <form th:action="'/protocol'+${Protocol}">
+                    <form th:action="'/protocol'+${Protocol}+'Show'">
                         <h3>Запрос на просмотр</h3>
                         <input type="hidden" value="Show" name="typeReqest" required>
                         <input type="text" placeholder="Ваше имя" name="name" required>
@@ -193,7 +193,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </li>
             <li>
                 <div>
-                    <form th:action="'/protocol'+${Protocol}">
+                    <form th:action="'/protocol'+${Protocol}+'Edit'">
                         <h3>Запрос на изменение</h3>
                         <input type="hidden" value="Edit" name="typeReqest" required>
                         <input type="text" placeholder="Ваше имя" name="name" required>
@@ -205,7 +205,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </li>
             <li>
                 <div>
-                    <form th:action="'/protocol'+${Protocol}">
+                    <form th:action="'/protocol'+${Protocol}+'Del'">
                         <h3>Запрос на удаление</h3>
                         <input type="hidden" value="Del" name="typeReqest" required>
                         <input type="text" placeholder="Ваше имя" name="name" required>
