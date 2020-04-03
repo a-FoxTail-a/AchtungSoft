@@ -161,18 +161,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </header>
     <main class="content">
         <center><h1 th:text="'Передача по протоколу ' + ${Protocol} + '!'" /></center>
-        <h2 th:text="'Какой запросы вы хотите передать по протоколу ?  ' + ${Protocol}"/>
+
 
         <div class="block-response-css" th:text="${ResponseDB}"></div>
         <ul>
             <li>
                 <div>
-                    <form th:action="'/protocol'+${Protocol}">
+                    <form th:action="'/protocol'+${Protocol}" method="post">
                         <h3>Запрос на создание</h3>
                         <input type="hidden" value="Create" name="typeReqest" required>
-                        <input type="text" placeholder="Ваше имя" name="name" required>
+                        <input type="text" placeholder="Имя" name="first_name" required>
+                        <input type="text" placeholder="Фамилия" name="last_name" required>
+                        <input type="text" placeholder="Отчество" name="middle_name" required>
+                        <input type="text" placeholder="Ваш телефон" name="phone" required>
                         <input type="text" placeholder="Ваш е-мейл" name="email" required>
-                        <input type="text" placeholder="Ещё одно поле для ввода" name="other" required>
                         <button type="submit" class="button-css">Создать</button>
                     </form>
                 </div>

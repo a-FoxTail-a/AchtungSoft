@@ -3,6 +3,7 @@ package com.SuperSoft.home.Contollers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,19 +16,21 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/protocolHTTP")
-    public String protocolHTTP(Model model) {
-        model.addAttribute("Protocol", "HTTP");
-        model.addAttribute("ResponseDB", "Тут будет ответ от сервера");
-        return "PageProtocol";
-    }
 
-    @GetMapping("/protocolSOAP")
-    public String protocolSOAP(Model model) {
-        model.addAttribute("Protocol", "SOAP");
-        model.addAttribute("ResponseDB", "Тут будет ответ от сервера");
-        return "PageProtocol";
-    }
+
+//    @GetMapping("/protocolHTTP")
+//    public String GETprotocolHTTP(Model model) {
+//        model.addAttribute("Protocol", "HTTP");
+//        model.addAttribute("ResponseDB", "Тут будет ответ от сервера");
+//        return "PageProtocol";
+//    }
+//
+//    @GetMapping("/protocolSOAP")
+//    public String GETprotocolSOAP(Model model) {
+//        model.addAttribute("Protocol", "SOAP");
+//        model.addAttribute("ResponseDB", "Тут будет ответ от сервера");
+//        return "PageProtocol";
+//    }
 
 //    @GetMapping("/protocolJMS")
 //    public String protocolJMS(Model model) {
@@ -44,15 +47,81 @@ public class MainController {
 //    @RequestParam("arrivalDate") @DateTimeFormat(iso = ISO.DATE) LocalDate endDate,
 //    @ModelAttribute("idAttribute") Supply supply, Model model)
 
-
-    @GetMapping("/protocolJMS")
-    public String protocolJMS(@RequestParam(name="name", required=false, defaultValue="Тут будет ответ от БД") String name,
-                              @RequestParam(name="email", required=false, defaultValue="") String email,Model model) {
-        model.addAttribute("Protocol", "JMS");
-        model.addAttribute("ResponseDB", name + email);
-
+    //============================================ Контроллер HTTP===================================
+    @GetMapping("/protocolHTTP")
+    public String GETprotocolHTTP(@RequestParam(name="first_name", required=false, defaultValue="Тут будет ответ от БД") String first_name,
+                                 @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                 @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                 @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                 @RequestParam(name="email", required=false, defaultValue="") String email,
+                                   Model model) {
+        model.addAttribute("Protocol", "HTTP");
+        model.addAttribute("ResponseDB", first_name);
         return "PageProtocol";
     }
+    @PostMapping("/protocolHTTP")
+    public String POSTprotocolHTTP(@RequestParam(name="first_name", required=false, defaultValue="Тут будет ответ от БД") String first_name,
+                                   @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                   @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                   @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                   @RequestParam(name="email", required=false, defaultValue="") String email,
+                                   Model model) {
+        model.addAttribute("Protocol", "HTTP");
+        model.addAttribute("ResponseDB", first_name);
+        return "PageProtocol";
+    }
+
+    //============================================ Контроллер SOAP===================================
+
+    @GetMapping("/protocolSOAP")
+    public String GETprotocolSOAP(@RequestParam(name="first_name", required=false, defaultValue="Тут будет ответ от БД") String first_name,
+                                   @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                   @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                   @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                   @RequestParam(name="email", required=false, defaultValue="") String email,
+                                   Model model) {
+        model.addAttribute("Protocol", "SOAP");
+        model.addAttribute("ResponseDB", first_name);
+        return "PageProtocol";
+    }
+    @PostMapping("/protocolSOAP")
+    public String POSTprotocolSOAP(@RequestParam(name="first_name", required=false, defaultValue="Тут будет ответ от БД") String first_name,
+                                   @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                   @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                   @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                   @RequestParam(name="email", required=false, defaultValue="") String email,
+                                   Model model) {
+        model.addAttribute("Protocol", "SOAP");
+        model.addAttribute("ResponseDB", first_name);
+        return "PageProtocol";
+    }
+
+
+    //============================================ Контроллер JMS===================================
+
+    @GetMapping("/protocolJMS")
+    public String GETprotocolJMS(@RequestParam(name="first_name", required=false, defaultValue="Тут будет ответ от БД") String first_name,
+                                 @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                 @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                 @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                 @RequestParam(name="email", required=false, defaultValue="") String email,
+                                 Model model) {
+        model.addAttribute("Protocol", "JMS");
+        model.addAttribute("ResponseDB", first_name);
+        return "PageProtocol";
+    }
+    @PostMapping("/protocolJMS")
+    public String POSTprotocolJMS(@RequestParam(name="first_name", required=false, defaultValue="Тут будет ответ от БД") String first_name,
+                                  @RequestParam(name="last_name", required=false, defaultValue="") String last_name,
+                                  @RequestParam(name="middle_name", required=false, defaultValue="") String middle_name,
+                                  @RequestParam(name="phone", required=false, defaultValue="") String phone,
+                                  @RequestParam(name="email", required=false, defaultValue="") String email,
+                                  Model model) {
+        model.addAttribute("Protocol", "JMS");
+        model.addAttribute("ResponseDB", first_name);
+        return "PageProtocol";
+    }
+
 
 
 
