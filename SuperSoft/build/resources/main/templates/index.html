@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text= "${Title}" ></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="css/style.css" th:href="@{/css/style.css}" />
+
+    <style>
+        .button-css {
+            display: inline-block;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            position: relative;
+            cursor: pointer;
+            margin: auto;
+            padding: 0 20px;
+            border: 4px solid rgb(255,255,255);
+            font: normal normal bold 20px/50px Arial, Helvetica, sans-serif;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-transform: uppercase;
+            -o-text-overflow: clip;
+            text-overflow: clip;
+            background: #FFAE00;
+        }
+
+        .button-css:hover {
+            top: 0;
+            margin: 0;
+            padding: 0 22px;
+            color: #FFAE00;
+            background: #ffffff;
+            align-items: center}
+
+        footer, header{
+
+        }
+
+        html, body, div, span, footer, header  {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font: 12px/18px Arial, sans-serif;
+            height: 100%;
+        }
+        .wrapper {
+            width: 100%;
+            min-width: 1000px;
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+        }
+
+
+        /* Header
+        -----------------------------------------------------------------------------*/
+        .header {
+            color: #04122B;
+            height: 150px;
+            background: #A3B0DC;
+            display: block;
+        }
+
+        .retro {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            margin: 0 auto;
+            border: none;
+            font: normal 82px/normal "Anton", Helvetica, sans-serif;
+            color: rgb(112, 112, 112);
+            text-align: center;
+            text-transform: uppercase;
+            -o-text-overflow: clip;
+            text-overflow: clip;
+            letter-spacing: 10px;
+            text-shadow: 4px 4px 0 rgb(238,238,238) , 6px 6px 0 rgb(112,112,112) ;
+        }
+
+
+        /* Middle
+        -----------------------------------------------------------------------------*/
+        .content {
+            padding: 0 0 100px;
+        }
+
+        /*
+        цвета для использования
+        бел #F1F1F3
+        гол #A3B0DC
+        сер #C2C0CF
+        чёр #04122B
+        кор #AD776F
+        /*
+        /* Footer
+        -----------------------------------------------------------------------------*/
+        .footer {
+            color: #F1F1F3;
+            margin: -100px auto 0;
+            min-width: 1000px;
+            height: 100px;
+            background: #04122B;
+            position: relative;
+            display: block;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <header class="header">
+        <center><div class="retro">SuperSoft</div></center>
+    </header>
+
+    <main class="content">
+        <p th:text="'Hello, ' + ${Title} + '!'" />
+        <center><p>По какому протаколу необходимо передать даныне ?</p></center>
+        <center><a href="/protocolHTTP"><div class="button-css" > Страница HTTP</div></a></center>
+        <center><a href="/protocolSOAP"><div class="button-css" > Страница SOAP</div></a></center>
+        <center><a href="/protocolJMS"><div class="button-css" > Страница JMS</div></a></center>
+
+    </main>
+
+</div>
+
+<footer class="footer">
+    <center><strong>Все права на разработку этой шайтан софтины принадлежит команде AchtungSuperGroup</strong></center>
+</footer>
+
+</body>
+</html>
